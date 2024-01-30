@@ -1,11 +1,10 @@
-import { Home } from "./pages/home";
+import { BrowserRouter } from "react-router-dom";
 import { Router } from "./routes";
 
 export const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Router />
-      <Home />
-    </div>
+    </BrowserRouter>
   );
 };
