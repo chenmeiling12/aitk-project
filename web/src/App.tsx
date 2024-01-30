@@ -1,3 +1,11 @@
+import { Home } from "./pages/home";
+import { Router } from "./routes";
+
 export const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Router />
+      <Home />
+    </div>
+  );
 };
