@@ -19,7 +19,7 @@ export const routerList: IRouterListProps[] = [
   },
   {
     key: "/library",
-    label: "問答庫",
+    label: "問答庫11212",
     icon: <GoPerson />,
     children: [
       {
