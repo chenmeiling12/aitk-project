@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-
 import { IChildrenProps, IRouterListProps } from "./props";
 import { AiOutlineHome } from "react-icons/ai";
 import { GoPerson } from "react-icons/go";
 import { Person } from "@/pages/person";
 import { Setting } from "@/pages/setting";
-import { Library } from "@/pages/library";
 import { Classify } from "@/pages/classify";
 import { AqConfig } from "@/pages/aq-config";
 import { Manage } from "@/pages/manage";
 import { Home } from "@/pages/home/index";
+import { Login } from "@/pages/login";
+
 export const routerList: IRouterListProps[] = [
   {
     key: "/person",
@@ -19,7 +19,7 @@ export const routerList: IRouterListProps[] = [
   },
   {
     key: "/library",
-    label: "問答庫11212",
+    label: "問答庫",
     icon: <GoPerson />,
     children: [
       {
@@ -51,6 +51,7 @@ export const Router = () => {
   return (
     <Routes>
       <Route path="*" element={<Home />} />
+      <Route path="/login" element={<Login />} />
       <Route element={<Home />}>
         {routerList.map((item: IRouterListProps, index: number) => (
           <Route path={item.key} element={item.element} key={index}>
