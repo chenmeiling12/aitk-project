@@ -2,59 +2,22 @@ import { routerList } from "@/routes";
 import { Avatar, Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import Layout, { Content, Header } from "antd/es/layout/layout";
-import { useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { UserOutlined } from "@ant-design/icons";
-
-const headerStyle: React.CSSProperties = {
-  textAlign: "right",
-  paddingInline: 20,
-  backgroundColor: "#fff",
-  border: "0.1rem solid #ddd",
-  display: "flex",
-  justifyContent: "flex-end",
-  alignItems: "center",
-};
-
-const contentStyle: React.CSSProperties = {
-  padding: "1rem",
-  backgroundColor: "#fff",
-};
-
-const siderStyle: React.CSSProperties = {
-  backgroundColor: "#fff",
-  borderRight: "0.1rem solid #ddd",
-};
-
-const siderHeaderStyle: React.CSSProperties = {
-  backgroundColor: "#fff",
-  color: "#2853E3",
-  fontSize: "1rem",
-};
-
-const layoutStyle = {
-  width: "calc(100% )",
-  height: "100vh",
-};
+import { useAction } from "./hook";
 
 export const Home = () => {
-  const navigate = useNavigate();
-
-  const pathname = useLocation().pathname;
-
-  const [menuInformation, setMenuInformation] = useState<{
-    openKeys: string[];
-    selectedKeys: string[];
-  }>({
-    openKeys: [pathname],
-    selectedKeys: [pathname],
-  });
+  const { navigate, menuInformation, setMenuInformation } = useAction();
 
   return (
     <div>
-      <Layout style={layoutStyle}>
-        <Sider width="223" style={siderStyle}>
-          <Header style={siderHeaderStyle}></Header>
+      <Layout style={{ width: "calc(100% )", height: "100vh" }}>
+        <Sider
+          width="223"
+          style={{ backgroundColor: "#fff" }}
+          className="border-x border-gray-200"
+        >
+          <Header className="bg-white text-xs" />
           <Menu
             mode="inline"
             items={routerList}
@@ -73,10 +36,10 @@ export const Home = () => {
           />
         </Sider>
         <Layout>
-          <Header style={headerStyle}>
+          <Header className="text-right pe-6 border-y border-slate-300 flex justify-end items-center bg-white">
             <Avatar size={55} icon={<UserOutlined />} />
           </Header>
-          <Content style={contentStyle}>
+          <Content className="bg-white p-4">
             <Outlet />
           </Content>
         </Layout>
