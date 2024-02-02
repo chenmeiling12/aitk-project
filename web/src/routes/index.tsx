@@ -9,6 +9,7 @@ import { AqConfig } from "@/pages/aq-config";
 import { Manage } from "@/pages/manage";
 import { Home } from "@/pages/home/index";
 import { Login } from "@/pages/login";
+import { Library } from "@/pages/library";
 
 export const routerList: IRouterListProps[] = [
   {
@@ -53,6 +54,7 @@ export const Router = () => {
       <Route path="*" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route element={<Home />}>
+        <Route path="/library" element={<Library />} />
         {routerList.map((item: IRouterListProps, index: number) => (
           <Route path={item.key} element={item.element} key={index}>
             {item.children?.map((item: IChildrenProps, index: number) => {
