@@ -5,6 +5,7 @@ import { useAction } from "./hook";
 
 export const Eitd = ({ setIsEitd }: { setIsEitd: (bool: boolean) => void }) => {
   const [form] = Form.useForm();
+
   const {
     isUser,
     onIsUse,
@@ -32,41 +33,36 @@ export const Eitd = ({ setIsEitd }: { setIsEitd: (bool: boolean) => void }) => {
           </Col>
           <Col span={12}>
             <Form.Item name="isUser" label="是否啟用">
-              <Radio.Group onChange={onIsUse} value={isUser} defaultValue={1}>
+              <Radio.Group onChange={onIsUse} value={isUser}>
                 <Radio value={1}>啟用</Radio>
                 <Radio value={2}>禁用</Radio>
               </Radio.Group>
             </Form.Item>
           </Col>
         </Row>
-
         <Row>
           <Col span={8}>
-            <Form.Item
-              name="power"
-              label="擁有權限"
-              style={{
-                width: 200,
-              }}
-            >
-              <Radio value={1}>全選</Radio>
-              <div className="flex">
-                <div className="pt-2">
-                  <div className="w-16 mr-5">數據權限</div>
-                </div>
-                <div className="p-2 border">
-                  <div className="border-b-2 w-48">
-                    <span className="mr-4">分類權限</span>
-                    <Checkbox onChange={onCheckAll} checked={checkAll}>
-                      全選
-                    </Checkbox>
+            <Form.Item name="power" label="擁有權限">
+              <div>
+                <Radio value={1}>全選</Radio>
+                <div className="flex">
+                  <div className="pt-2">
+                    <div className="w-16 mr-5">數據權限</div>
                   </div>
-                  <div className="w-64">
-                    <CheckboxGroup
-                      options={plainOptions}
-                      value={checkedList}
-                      onChange={onClassifyPower}
-                    />
+                  <div className="p-2 border">
+                    <div className="border-b-2 w-48">
+                      <span className="mr-4">分類權限</span>
+                      <Checkbox onChange={onCheckAll} checked={checkAll}>
+                        全選
+                      </Checkbox>
+                    </div>
+                    <div className="w-64">
+                      <CheckboxGroup
+                        options={plainOptions}
+                        value={checkedList}
+                        onChange={onClassifyPower}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -74,7 +70,7 @@ export const Eitd = ({ setIsEitd }: { setIsEitd: (bool: boolean) => void }) => {
           </Col>
           <Col span={8} offset={8}>
             <Form.Item name="operate" label="權限操作">
-              <Radio.Group onChange={onIsLook} value={isLook} defaultValue={1}>
+              <Radio.Group onChange={onIsLook} value={isLook}>
                 <Radio value={1}>可編輯</Radio>
                 <Radio value={2}>僅瀏覽</Radio>
               </Radio.Group>
@@ -130,7 +126,7 @@ export const Eitd = ({ setIsEitd }: { setIsEitd: (bool: boolean) => void }) => {
         footer={[
           <div className="flex justify-center" key="confirm">
             <Button
-              className=" flex justify-center w-20 m-10"
+              className="flex justify-center w-20 m-10"
               onClick={() => {
                 setAddMan(false);
               }}

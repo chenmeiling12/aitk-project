@@ -5,7 +5,7 @@ import {
   Space,
   Table,
   TableProps,
-  message,
+  App,
 } from "antd";
 import { Button } from "antd/es/radio";
 import { useAction } from "./hook";
@@ -13,6 +13,8 @@ import { IManProps, IroleProps } from "./props";
 import { Eitd } from "./components/eitd";
 
 export const Setting = () => {
+  const { message } = App.useApp();
+
   const {
     roledDta,
     manData,
