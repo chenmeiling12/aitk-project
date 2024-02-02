@@ -13,8 +13,16 @@ import { IManProps, IroleProps } from "./props";
 import { Eitd } from "./components/eitd";
 
 export const Setting = () => {
-  const { roledDta, manData, handleTabs, tab, openMan, setOpenMan, navigate } =
-    useAction();
+  const {
+    roledDta,
+    manData,
+    handleTabs,
+    tab,
+    openMan,
+    setOpenMan,
+    isEitd,
+    setIsEitd,
+  } = useAction();
 
   const roleColumns: TableProps<IroleProps>["columns"] = [
     {
@@ -53,7 +61,7 @@ export const Setting = () => {
         <Space size="middle">
           <Button
             onChange={() => {
-              console.log(record.key);
+              setIsEitd(true);
             }}
           >
             編輯
@@ -95,7 +103,7 @@ export const Setting = () => {
 
   return (
     <div>
-      <div className="">設置{">"}新增角色</div>
+      <div>設置{isEitd && ">新增角色"}</div>
       <div className="  mt-5 flex justify-between ">
         <ConfigProvider
           theme={{
@@ -121,11 +129,15 @@ export const Setting = () => {
             <Radio.Button value="RS">RS</Radio.Button>
           </Radio.Group>
         </ConfigProvider>
-        <Button>新增角色</Button>
+        {!isEitd && <Button onClick={() => setIsEitd(true)}>新增角色</Button>}
       </div>
 
-      <Table columns={roleColumns} dataSource={roledDta} bordered />
-      {/* <Eitd></Eitd> */}
+      {isEitd ? (
+        <Eitd setIsEitd={setIsEitd}></Eitd>
+      ) : (
+        <Table columns={roleColumns} dataSource={roledDta} bordered />
+      )}
+
       <Modal
         open={openMan}
         width="50rem"

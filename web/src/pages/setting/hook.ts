@@ -1,7 +1,6 @@
 import { RadioChangeEvent } from "antd";
 import { IManProps, IroleProps, TabPosition } from "./props";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const useAction = () => {
   const roledDta: IroleProps[] = [
@@ -60,7 +59,16 @@ export const useAction = () => {
 
   const [openMan, setOpenMan] = useState(false);
 
-  const navigate = useNavigate();
+  const [isEitd, setIsEitd] = useState(false);
 
-  return { roledDta, manData, handleTabs, tab, openMan, setOpenMan, navigate };
+  return {
+    roledDta,
+    manData,
+    handleTabs,
+    tab,
+    openMan,
+    setOpenMan,
+    isEitd,
+    setIsEitd,
+  };
 };
