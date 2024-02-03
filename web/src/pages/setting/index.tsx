@@ -69,7 +69,7 @@ export const Setting = () => {
             編輯
           </Button>
           <Button
-            onChange={() => {
+            onClick={() => {
               message.success("刪除成功!");
             }}
           >
@@ -106,7 +106,7 @@ export const Setting = () => {
   return (
     <div>
       <div>設置{isEitd && ">新增角色"}</div>
-      <div className="  mt-5 flex justify-between ">
+      <div className="mt-5 flex justify-between">
         <ConfigProvider
           theme={{
             components: {
@@ -159,7 +159,6 @@ export const Setting = () => {
       >
         <div className="border-t mt-8 py-4">
           <div className="pb-4"> 角色名單</div>
-
           <Table
             scroll={{ y: 240 }}
             columns={manColumns}

@@ -81,7 +81,7 @@ export const Eitd = ({ setIsEitd }: { setIsEitd: (bool: boolean) => void }) => {
         <Form.Item name="manList" label="人員名單" style={{ width: 200 }}>
           <div className="flex">
             <div className="border mr-4">
-              <div className="pt-1 pl-2 pb-6 pr-24 ">
+              <div className="pt-1 pl-2 pb-6 pr-24">
                 <div>ABC.D</div>
                 <div>XIAOSHUAI.C</div>
                 <div>XIAOMEI.H</div>
@@ -151,7 +151,7 @@ export const Eitd = ({ setIsEitd }: { setIsEitd: (bool: boolean) => void }) => {
             <FiSearch className="text-2xl" />
           </div>
           <div className="border mt-4 p-4 max-h-60 min-h-48">
-            <Checkbox onChange={() => {}}>ABC.D</Checkbox>
+            <Checkbox>ABC.D</Checkbox>
           </div>
         </div>
       </Modal>
