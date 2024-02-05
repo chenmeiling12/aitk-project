@@ -1,11 +1,10 @@
 import { Router } from "@/routes";
-import { Home } from "./pages/home/index";
+import { App as AppWrapper } from "antd";
 
 export const App = () => {
   return (
-    <div>
+    <AppWrapper>
       <Router />
-      {/* <Home /> */}
-    </div>
+    </AppWrapper>
   );
 };
